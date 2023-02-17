@@ -1,12 +1,12 @@
 package com.example.LibraryManagementSystem.Controllers;
 
 import com.example.LibraryManagementSystem.DTOS.IssueTransactionDto;
+import com.example.LibraryManagementSystem.DTOS.getTransactionBCardDto;
 import com.example.LibraryManagementSystem.Services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/Transaction")
@@ -20,6 +20,11 @@ public class TransactionController {
         }catch (Exception e){
             return e.getMessage();
         }
+    }
+    @GetMapping("/getTxnInfo")
+    public List<String> getTransactionEntry(@RequestBody() IssueTransactionDto transactionDto){
+        //System.out.println(bookId+"thi si book id "+cardId +"thi is card id");
+        return transactionService.getTransactions(transactionDto);
     }
 
 }
