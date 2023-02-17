@@ -16,7 +16,7 @@ public class BookController {
     @Autowired
     BookService bookService;
     @PostMapping("/addBook")
-    public String addBook(@RequestBody() Book book){
-        return bookService.addBook(book);
+    public String addBook(@RequestBody() EntryBookDto bookDto){
+        return bookService.addBook(bookDto);
     }
 }
