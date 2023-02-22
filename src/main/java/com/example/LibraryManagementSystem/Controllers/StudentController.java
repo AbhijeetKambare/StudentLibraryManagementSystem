@@ -28,6 +28,8 @@ public class StudentController {
     }
     @PutMapping("/updateMob")
     public String updateMobNo(@RequestBody() StudentUpdateRequestDto updateRequestDto){
+        System.out.println("click");
         return studentService.updateMob(updateRequestDto);
+        ////this is
     }
 }
